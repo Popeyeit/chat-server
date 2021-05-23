@@ -1,0 +1,36 @@
+{
+  "name": "chat-server",
+  "version": "1.0.0",
+  "description": "server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Popeyeit/chat-server.git"
+  },
+  "author": "popeyeit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Popeyeit/chat-server/issues"
+  },
+  "homepage": "https://github.com/Popeyeit/chat-server#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.0.0",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.9",
+    "mongoose-paginate-v2": "^1.3.17",
+    "nodemon": "^2.0.7",
+    "pusher": "^5.0.0",
+    "uuid": "^8.3.2",
+    "yargs": "^17.0.1"
+  }
+}
