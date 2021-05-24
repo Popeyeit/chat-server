@@ -37,11 +37,11 @@ email: {
 
 Routers:
 
-  POST '/register',{email,password,name}
-  POST '/login'
-  POST '/logout'
-  GET '/currentUser'
-  GET '/users' -- get all users
+  -POST '/register',{email,password,name}
+  -POST '/login'
+  -POST '/logout'
+  -GET '/currentUser'
+  -GET '/users' -- get all users
 
 
 *********ROOM*********
@@ -59,10 +59,10 @@ Room Model {
 
 Routers:
 
-GET '/rooms' -- get all rooms
-GET '/rooms/:roomId' -- get room by id
-POST '/rooms/new,{name}' -- create new room
-PATCH '/rooms/change/:roomId,{lastMessage}' -- changer last message in the room
+-GET '/rooms' -- get all rooms
+-GET '/rooms/:roomId' -- get room by id
+-POST '/rooms/new,{name}' -- create new room
+-PATCH '/rooms/change/:roomId,{lastMessage}' -- changer last message in the room
 
 
 *********MESSAGES*********
@@ -92,5 +92,5 @@ Message Model {
 
 Routers:
 
-POST "/messages,{message,roomId}"
-GET "/message/:userId" -- get all message of user
+-POST "/messages,{message,roomId}"
+-GET "/message/:userId" -- get all message of user
