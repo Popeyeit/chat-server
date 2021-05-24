@@ -81,6 +81,7 @@ exports.registerUser = async (req, res, next) => {
         name: userDb.name,
         email: userDb.email,
         status: userDb.status,
+        id: userDb._id,
       },
       token,
     });
@@ -133,9 +134,13 @@ exports.loginUser = async (req, res, next) => {
     });
 
     await res.status(200).json({
-      email: isUser.email,
-      name: isUser.name,
-      status: isUser.status,
+      user: {
+        email: isUser.email,
+        name: isUser.name,
+        status: isUser.status,
+        id: isUser._id,
+      },
+
       token,
     });
   } catch (error) {
@@ -149,6 +154,8 @@ exports.currentUser = async (req, res, next) => {
     res.status(200).json({
       email: user.email,
       name: user.name,
+      status: user.status,
+      id: user._id,
     });
   } catch (error) {
     next(error);
