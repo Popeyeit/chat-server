@@ -22,6 +22,7 @@ exports.createMessage = async (req, res, next) => {
       id: resultDb._id,
       email: user.email,
       roomId: resultDb.roomId,
+      user: resultDb.user,
     });
   } catch (error) {
     next(error);
@@ -44,6 +45,7 @@ exports.getMessagesByIdUser = async (req, res, next) => {
             email: userAuthorize.email,
             timestamp: message.timestamp,
             roomId: message.roomId,
+            user: message.user,
           }
         : {
             name: message.name,
@@ -51,6 +53,7 @@ exports.getMessagesByIdUser = async (req, res, next) => {
             id: message._id,
             timestamp: message.timestamp,
             roomId: message.roomId,
+            user: message.user,
           };
     });
 

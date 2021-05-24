@@ -3,7 +3,6 @@ const messageModule = require('../messages/model');
 exports.createRoom = async (req, res, next) => {
   try {
     const data = req.body;
-    console.log(data);
 
     const resultDb = await roomModule.create({
       name: data.name,
@@ -18,7 +17,6 @@ exports.createRoom = async (req, res, next) => {
 exports.changeRoom = async (req, res, next) => {
   try {
     const data = req.body;
-    console.log(data);
 
     const resultDb = await roomModule.patch({
       lastMessage: data.lastMessage,
@@ -62,6 +60,7 @@ exports.getMessagesByIdRoom = async (req, res, next) => {
             email: user.email,
             timestamp: message.timestamp,
             roomId: message.roomId,
+            user: message.user,
           }
         : {
             name: message.name,
@@ -69,6 +68,7 @@ exports.getMessagesByIdRoom = async (req, res, next) => {
             id: message._id,
             timestamp: message.timestamp,
             roomId: message.roomId,
+            user: message.user,
           };
     });
 
