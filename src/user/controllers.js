@@ -38,15 +38,16 @@ exports.authorize = async (req, res, next) => {
 
 exports.checkUniqueEmail = async (req, res, next) => {
   try {
-    const { email } = req.body;
+    const { email, name } = req.body;
 
     const uniqueEmail = await userModel.getUserByEmail(email);
     if (uniqueEmail) {
       res.status(409).json('Email in use');
       return false;
     }
-    if (req.body?.name === uniqueEmail?.name) {
-      res.status(409).json('Login in use');
+    const uniqueName = await userModel.findOne({ name });
+    if (uniqueName) {
+      res.status(409).json('Name in use');
       return false;
     }
     next();
