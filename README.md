@@ -6,9 +6,12 @@ base url https://popeye-chat.herokuapp.com/api
 
 User model {
 email: {
-    type: String,
-    required: true,
-    unique: true,
+    type: String,  
+    
+    required: true,  
+    
+    unique: true,  
+    
   },
   name: {
     type: String,
