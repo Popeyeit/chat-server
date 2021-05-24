@@ -28,4 +28,34 @@ exports.createMessage = async (req, res, next) => {
   }
 };
 
+exports.getMessagesByIdUser = async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+    const { user: userAuthorize } = req;
 
+    const messages = await MessageModule.find({ user: userId });
+
+    const newMessages = messages.map(message => {
+      return String(message.user) === String(userAuthorize._id)
+        ? {
+            name: message.name,
+            message: message.message,
+            id: message._id,
+            email: userAuthorize.email,
+            timestamp: message.timestamp,
+            roomId: message.roomId,
+          }
+        : {
+            name: message.name,
+            message: message.message,
+            id: message._id,
+            timestamp: message.timestamp,
+            roomId: message.roomId,
+          };
+    });
+
+    res.status(200).json(newMessages);
+  } catch (error) {
+    next(error);
+  }
+};

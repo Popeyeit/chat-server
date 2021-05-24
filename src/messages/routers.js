@@ -3,7 +3,7 @@ const messageRouter = Router();
 const { authorize } = require('../user/controllers');
 const { handleValidate } = require('../helpers/validate');
 const { createMessageRules } = require('./schemes');
-const { createMessage } = require('./controllers');
+const { createMessage, getMessagesByIdUser } = require('./controllers');
 
 messageRouter.post(
   '/',
@@ -11,5 +11,5 @@ messageRouter.post(
   handleValidate(createMessageRules),
   createMessage,
 );
-
+messageRouter.get('/:userId', authorize, getMessagesByIdUser);
 module.exports = messageRouter;
