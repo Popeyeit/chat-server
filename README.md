@@ -4,37 +4,62 @@ base url https://popeye-chat.herokuapp.com/api
 
 *********USER*********
 
-User model {
-email: {
+User model {  
+
+email: {  
+
     type: String,  
     
     required: true,  
     
     unique: true,  
     
-  },
-  name: {
-    type: String,
-    required: true,
-    min: 2,
-    max: 30,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-    min: 6,
-    max: 50,
-  },
-  token: {
-    type: String,
-    required: false,
-    default: null,
-  },
-  status: {
-    type: String,
-    required: true,
-    default: 'online',
+  },  
+  
+  name: {  
+  
+    type: String,  
+    
+    required: true,  
+    
+    min: 2,  
+    
+    max: 30,  
+    
+    unique: true,  
+    
+  },  
+  
+  password: {  
+  
+    type: String,  
+    
+    required: true,  
+    
+    min: 6,  
+    
+    max: 50,  
+    
+  },  
+  
+  token: {  
+  
+    type: String,  
+    
+    required: false,  
+    
+    default: null,  
+    
+  },  
+  
+  status: {  
+  
+    type: String,  
+    
+    required: true,  
+    
+    default: 'online',  
+    
   },
 }
 
@@ -49,14 +74,22 @@ Routers:
 
 *********ROOM*********
 
-Room Model {
-  name: {
-    type: String,
-    required: true,
-  },
-  lastMessage: {
-    type: String,
-    require: false,
+Room Model {  
+
+  name: {  
+  
+    type: String,  
+    
+    required: true,  
+    
+  },  
+  
+  lastMessage: {  
+  
+    type: String,  
+    
+    require: false,  
+    
   },
 };
 
@@ -70,26 +103,46 @@ Routers:
 
 *********MESSAGES*********
 
-Message Model {
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-  },
-  message: {
-    type: String,
-    required: true,
-  },
-  timestamp: {
-    type: String,
-    required: true,
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-  roomId: {
-    type: Schema.Types.ObjectId,
-    ref: 'Room',
+Message Model {  
+
+  user: {  
+  
+    type: Schema.Types.ObjectId,  
+    
+    ref: 'User',  
+    
+  },  
+  
+  message: {  
+  
+    type: String,  
+    
+    required: true,  
+    
+  },  
+  
+  timestamp: {  
+  
+    type: String,  
+    
+    required: true,  
+    
+  },  
+  
+  name: {  
+  
+    type: String,  
+    
+    required: true,  
+    
+  },  
+  
+  roomId: {  
+  
+    type: Schema.Types.ObjectId,  
+    
+    ref: 'Room',  
+    
   },
 };
 
