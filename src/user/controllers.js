@@ -45,6 +45,10 @@ exports.checkUniqueEmail = async (req, res, next) => {
       res.status(409).json('Email in use');
       return false;
     }
+    if (req.body?.name === uniqueEmail?.name) {
+      res.status(409).json('Login in use');
+      return false;
+    }
     next();
   } catch (error) {
     next(error);
