@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const messageSchema = new Schema({
   user: {
-    type: Schema.Types.ObjectId,
+    type: String,
     ref: 'User',
   },
   message: {
@@ -19,7 +19,7 @@ const messageSchema = new Schema({
     required: true,
   },
   roomId: {
-    type: Schema.Types.ObjectId,
+    type: String,
     ref: 'Room',
   },
 });
